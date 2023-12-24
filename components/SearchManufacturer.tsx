@@ -29,9 +29,9 @@ export default function SearchManufacturer({
           <Combobox.Button className="top-[14px]">
             <Image
               src="/car-logo.svg"
-              width={30}
-              height={30}
-              className="ml-4"
+              width={20}
+              height={20}
+              className="ml-2"
               alt="car logo"
             />
           </Combobox.Button>
