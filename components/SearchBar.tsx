@@ -20,37 +20,37 @@ const SearchButton = ({ otherClasses }: { otherClasses: string }) => (
 export default function SearchBar() {
   const [manufacturer, setManufacturer] = useState("");
   const [model, setModel] = useState("");
-  // const router = useRouter();
+  const router = useRouter();
   const handleSearch = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if (manufacturer === "" && model === "") {
       return alert("Please enter a manufacturer or model");
     }
-    // updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase());
+    updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase());
   };
 
-  // const updateSearchParams = (model: string, manufacturer: string) => {
-  //   const searchParams = new URLSearchParams(window.location.search);
+  const updateSearchParams = (model: string, manufacturer: string) => {
+    const searchParams = new URLSearchParams(window.location.search);
 
-  //   if (model) {
-  //     searchParams.set("model", model);
-  //   } else {
-  //     searchParams.delete("model");
-  //   }
+    if (model) {
+      searchParams.set("model", model);
+    } else {
+      searchParams.delete("model");
+    }
 
-  //   if (manufacturer) {
-  //     searchParams.set("manufacturer", manufacturer);
-  //   } else {
-  //     searchParams.delete("manufacturer");
-  //   }
+    if (manufacturer) {
+      searchParams.set("manufacturer", manufacturer);
+    } else {
+      searchParams.delete("manufacturer");
+    }
 
-  //   const newPathname = `${
-  //     window.location.pathname
-  //   }?${searchParams.toString()}`;
+    const newPathname = `${
+      window.location.pathname
+    }?${searchParams.toString()}`;
 
-  //   router.push(newPathname);
-  // };
+    router.push(newPathname);
+  };
 
   return (
     <form className="searchbar" onSubmit={handleSearch}>
