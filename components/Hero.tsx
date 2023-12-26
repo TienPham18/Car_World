@@ -2,7 +2,6 @@
 import React from "react";
 import Image from "next/image";
 import { CustomButton } from ".";
-import Link from "next/link";
 
 export default function Hero() {
   const handleScroll = () => {};
