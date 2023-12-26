@@ -7,7 +7,7 @@ import { fuels, yearsOfProduction } from "@/constants";
 export default async function Home({ searchParams }: HomeProps) {
   const allCars = await fetchCars({
     manufacturer: searchParams.manufacturer || "",
-    year: searchParams.year || "2022",
+    year: searchParams.year || 2022,
     fuel: searchParams.fuel || "",
     limit: searchParams.limit || 12,
     model: searchParams.model || "",

@@ -9,7 +9,7 @@ import { updateSearchParams } from "@/utils";
 
 export default function CustomFilter({ options, title }: CustomFilterProps) {
   const router = useRouter();
-  const [selected, setSelected] = useState(options);
+  const [selected, setSelected] = useState(options[0]);
 
   const handleUpdateParams = (e: { title: string; value: string }) => {
     const newPathName = updateSearchParams(title, e.value.toLocaleLowerCase());
