@@ -1,5 +1,6 @@
-import { CarCard, CustomFilter, Hero, SearchBar, ShowMore } from "@/components";
+import { CarCard, CustomFilter, Hero, SearchBar } from "@/components";
 import { fetchCars } from "@/utils";
+import Image from "next/image";
 import { HomeProps } from "@/types";
 import { fuels, yearsOfProduction } from "@/constants";
 
@@ -12,6 +13,7 @@ export default async function Home({ searchParams }: HomeProps) {
     model: searchParams.model || "",
   });
 
+  // console.log(allCars);
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
   return (
     <main className="overflow-hidden">
@@ -29,17 +31,11 @@ export default async function Home({ searchParams }: HomeProps) {
           </div>
         </div>
         {!isDataEmpty ? (
-          <section>
-            <div className="home__cars-wrapper">
-              {allCars?.map((car) => (
-                <CarCard key="car" car={car} />
-              ))}
-            </div>
-            <ShowMore
-              pageNumber={(searchParams.limit || 10) / 10}
-              isNext={(searchParams.limit || 10) > allCars.length}
-            />
-          </section>
+          <div className="home__cars-wrapper">
+            {allCars?.map((car) => (
+              <CarCard key="car" car={car} />
+            ))}
+          </div>
         ) : (
           <div className="home__error-container">
             <h2 className="text-black text-xl font-bold">No results</h2>
