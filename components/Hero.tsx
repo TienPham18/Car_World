@@ -5,7 +5,12 @@ import { CustomButton } from ".";
 import Link from "next/link";
 
 export default function Hero() {
-  const handleScroll = () => {};
+  const handleScroll = () => {
+    // Get a reference to the fist element with the class name "searchbar"
+    const nextSection = document.querySelector(".searchbar");
+    // Scroll to the element with smooth behavior
+    nextSection?.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <div className="hero">
       <div className="flex-1 pt-36 padding-x">
