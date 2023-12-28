@@ -48,6 +48,7 @@ export interface OptionProps {
 }
 
 export interface CustomFilterProps {
+  handleClick?: MouseEventHandler<HTMLButtonElement>;
   title: string;
   options: OptionProps[];
 }
