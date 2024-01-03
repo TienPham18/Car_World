@@ -1,7 +1,7 @@
 "use client";
 import { SearchManufacturerProps } from "@/types";
 import React from "react";
-import { Combobox, Listbox, Transition } from "@headlessui/react";
+import { Combobox, Transition } from "@headlessui/react";
 import Image from "next/image";
 import { useState, Fragment } from "react";
 import { manufacturers } from "@/constants";
@@ -51,7 +51,7 @@ export default function SearchManufacturer({
             afterLeave={() => setQuery("")}
           >
             <Combobox.Options
-              className="absolute mt-1 max-h-20 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+              className="lg:absolute mt-1 max-h-20 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
               static
             >
               {filterManufacturers.map((item) => (

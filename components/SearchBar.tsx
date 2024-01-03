@@ -59,7 +59,7 @@ export default function SearchBar() {
           manufacturer={manufacturer}
           setManufacturer={setManufacturer}
         />
-        <SearchButton otherClasses="sm:hidden" />
+        {/* <SearchButton otherClasses="sm:hidden" /> */}
       </div>
       <div className="searchbar__item gap-3">
         <Image
