@@ -6,6 +6,7 @@ import { Listbox, Transition } from "@headlessui/react";
 import { CustomFilterProps } from "@/types";
 import Image from "next/image";
 import { updateSearchParams } from "@/utils";
+import { CheckIcon } from "@heroicons/react/20/solid";
 
 export default function CustomFilter({ options, title }: CustomFilterProps) {
   const router = useRouter();
@@ -27,7 +28,7 @@ export default function CustomFilter({ options, title }: CustomFilterProps) {
       >
         <div className="relative w-fit z-10">
           <Listbox.Button className="custom-filter__btn">
-            <span className="block truncate">{title}</span>
+            <span className="block truncate">{selected.title}</span>
             <Image
               src="/chevron-up-down.svg"
               width={20}
@@ -43,25 +44,32 @@ export default function CustomFilter({ options, title }: CustomFilterProps) {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Listbox.Options className="custom-filter__options">
+            <Listbox.Options className="custom-filter__options" static>
               {options.map((option) => (
                 <Listbox.Option
                   key={option.title}
                   value={option}
                   className={({ active }) =>
                     `relative cursor-default select-none py-2 px-4 ${
-                      active ? "bg-primary-blue text-white" : "text-gray-900"
+                      active ? "bg-amber-100 text-amber-900" : "text-gray-900"
                     }`
                   }
                 >
                   {({ selected }) => (
-                    <span
-                      className={`block truncate ${
-                        selected ? "font-medium" : "font-normal"
-                      }`}
-                    >
-                      {option.title}
-                    </span>
+                    <>
+                      <span
+                        className={`block truncate ${
+                          selected ? "font-medium" : "font-normal"
+                        }`}
+                      >
+                        {option.title}
+                      </span>
+                      {selected ? (
+                        <span className="absolute inset-y-0 right-0 flex items-center pl-3 text-amber-600">
+                          <CheckIcon className="h-5 w-5" aria-hidden="true" />
+                        </span>
+                      ) : null}
+                    </>
                   )}
                 </Listbox.Option>
               ))}
