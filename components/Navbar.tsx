@@ -18,7 +18,7 @@ export default function Navbar() {
         <CustomButton
           title="Sign In"
           btnType="button"
-          containerStyles="text-primary-blue bg-white rounded-full min-w-[130px]"
+          containerStyles="text-white rounded-full min-w-[80px] bg-blue-500 hover:bg-blue-700"
         />
       </nav>
     </header>
